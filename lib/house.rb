@@ -4,7 +4,14 @@ class House
     @price = price[1..-1].to_i
     @address = address
     @rooms = []
-    @details = Hash.new(0)
+    @details = Hash.new
+  end
+
+  def rooms_by_category
+    @rooms.group_by do |room|
+      room.category
+    end
+
   end
 
   def details
