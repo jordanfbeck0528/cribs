@@ -1,13 +1,28 @@
 class House
-  attr_reader :price, :address, :rooms
+  attr_reader :price, :address, :rooms, :details
   def initialize(price, address)
     @price = price[1..-1].to_i
     @address = address
     @rooms = []
+    @details = Hash.new(0)
   end
 
-  def room_from_category(category)
-    
+  def details
+    @details["price"] = @price
+    @details["address"] = @address
+    @details
+  end
+
+  def area
+    @rooms.sum do |room|
+      room.area
+    end
+  end
+
+  def rooms_from_category(category)
+    @rooms.select do |room|
+      room.category == category
+    end
   end
 
   def above_market_average?
