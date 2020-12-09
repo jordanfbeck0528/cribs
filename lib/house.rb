@@ -13,6 +13,17 @@ class House
     @details
   end
 
+  def rooms_sorted_by_area
+    rooms_sorted = rooms.sort_by do |room|
+      room.area
+    end
+    rooms_sorted.reverse
+  end
+
+  def price_per_square_foot
+    (price / area.to_f).round(2)
+  end
+
   def area
     @rooms.sum do |room|
       room.area
