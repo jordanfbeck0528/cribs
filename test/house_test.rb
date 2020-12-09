@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/room'
 require './lib/house'
+
 class HouseTest < Minitest::Test
   def test_it_exists_and_has_attributes
     house = House.new("$400000", "123 sugar lane")
@@ -76,7 +77,7 @@ class HouseTest < Minitest::Test
     house.add_room(room_2)
     house.add_room(room_3)
     house.add_room(room_4)
-    
+
     expected = {"price" => 400000, "address" => "123 sugar lane"}
 
     assert_equal expected, house.details

@@ -1,5 +1,6 @@
 class House
   attr_reader :price, :address, :rooms, :details
+
   def initialize(price, address)
     @price = price[1..-1].to_i
     @address = address
@@ -11,7 +12,6 @@ class House
     @rooms.group_by do |room|
       room.category
     end
-
   end
 
   def details

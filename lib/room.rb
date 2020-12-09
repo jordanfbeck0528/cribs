@@ -16,8 +16,4 @@ class Room
   def is_painted?
     @is_painted
   end
-
-  # def area
-  #   @length * @width.to_i
-  # end
 end
